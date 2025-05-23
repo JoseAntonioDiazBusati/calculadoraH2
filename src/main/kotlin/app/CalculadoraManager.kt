@@ -3,12 +3,14 @@ package org.example.app
 import org.example.model.Operador
 import org.example.service.CalculadoraService
 import org.example.service.IServicioLog
+import org.example.service.RegistroService
 import org.example.ui.IConsola
 
 class CalculadoraManager(
     private val consola: IConsola,
     private val calculadora: CalculadoraService,
-    private val gestorFicheros: IServicioLog
+    private val gestorFicheros: IServicioLog,
+    private val registroService: RegistroService
 ) {
 
     companion object {
@@ -24,6 +26,7 @@ class CalculadoraManager(
 
         if (args.size == 4) ejecutarCalculoConArgumentos(args)
 
+        registroService.crearRegistro()
         consola.pausa("Pulsa ENTER para iniciar la calculadora...")
         consola.limpiarPantalla()
 
@@ -49,6 +52,7 @@ class CalculadoraManager(
                 val mensaje = e.message ?: "Se ha producido un error!"
                 consola.mostrarError(mensaje)
                 gestorFicheros.registrarEntradaLog(mensaje)
+
             }
         } while (consola.preguntar())
 

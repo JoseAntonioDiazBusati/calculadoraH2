@@ -1,6 +1,6 @@
 package org.example.model
 
-class Calculadora (
+data class Calculadora (
     val numero1: Double,
     val numero2: Double,
     val operador: Operador,
