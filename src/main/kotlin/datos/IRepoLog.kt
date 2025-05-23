@@ -8,7 +8,7 @@ interface IRepoLog {
 
     fun crearRutaLog(): Boolean
     fun crearNuevoLog(): String
-    fun getContenidoUltimoLog(): List<String>
+    fun getUltimoLog(): List<String>
     fun registrarEntrada(msj: String)
     fun registrarEntrada(calculadora: Calculadora)
 }

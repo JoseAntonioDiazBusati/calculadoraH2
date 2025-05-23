@@ -20,7 +20,7 @@ class RepoLog(private val fichero: IUtilFicheros): IRepoLog {
         return nombre
     }
 
-    override fun getContenidoUltimoLog(): List<String> {
+    override fun getUltimoLog(): List<String> {
         val logs = ruta?.let { ficheroLog ->
             fichero.listarFicheros(ficheroLog)
                 .filter { it.name.startsWith("log") && it.name.endsWith(".txt") }
